@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>ToDo Frontend</h1>
+    <p class="subtle">Connected to Spring Boot API: <code>/api/v1/todo</code></p>
+
+    <section class="card">
+      <h2 id="formHeading">Create Todo</h2>
+      <form id="todoForm">
+        <div class="row">
+          <label for="title">Title</label>
+          <input id="title" type="text" required />
+        </div>
+        <div class="row">
+          <label for="description">Description</label>
+          <textarea id="description" required></textarea>
+        </div>
+        <div class="checkbox-row">
+          <input id="isCompleted" type="checkbox" />
+          <label for="isCompleted">Completed</label>
+        </div>
+        <div class="todo-actions">
+          <button id="submitBtn" type="submit">Add Todo</button>
+          <button id="cancelEditBtn" type="button" class="btn-secondary">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="header-row">
+        <h2>Todo List</h2>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+      <p id="statusMessage" class="subtle"></p>
+      <ul id="todoList"></ul>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
