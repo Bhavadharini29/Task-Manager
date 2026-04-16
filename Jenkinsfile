@@ -23,6 +23,9 @@ pipeline {
     stage('Deploy') {
       steps {
         bat '''
+          echo SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/todo > .env
+          echo SPRING_DATASOURCE_USERNAME=postgres >> .env
+          echo SPRING_DATASOURCE_PASSWORD=1234 >> .env
           docker compose down --volumes --remove-orphans || echo Ignored
           docker compose up -d --build
           docker ps --filter "name=todo-app" --format "{{.Names}} - {{.Status}} - {{.Ports}}"
